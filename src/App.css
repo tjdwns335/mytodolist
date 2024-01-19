@@ -37,7 +37,6 @@
 .label-style {
   font-size: 16px;
   font-weight: 700;
-  color: #d4bba4;
   margin: 0 20px;
 }
 
@@ -47,11 +46,12 @@
 }
 
 .formButton-style {
-  color: #fff;
-  background-color: #ba997b;
+  /* color: #fff; */
+  background-color: #00c37d;
   border: none;
   width: 100px;
   height: 30px;
+  cursor: pointer;
 }
 
 .formButton-style:hover {
@@ -66,9 +66,59 @@
   gap: 10px;
 }
 
-.todoList {
-  border: 4px solid #ba997b;
+.todoList,
+.doneList {
+  border: 4px solid #00c37d;
   border-radius: 12px;
   padding: 20px;
   width: 270px;
+}
+
+.doneList {
+  border-color: #2593f3;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cancel-button,
+.done-button,
+.delete-button {
+  width: 100px;
+  height: 40px;
+  border-radius: 15px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.delete-button {
+  border-color: #e60023;
+}
+
+.delete-button:hover {
+  background-color: #e60023;
+  color: #fff;
+}
+
+.done-button {
+  border-color: #00c37d;
+}
+
+.done-button:hover {
+  background-color: #00c37d;
+  color: fff;
+}
+
+.cancel-button {
+  border-color: #2593f3;
+}
+
+.cancel-button:hover {
+  background-color: #2593f3;
+  color: #fff;
 }

@@ -91,8 +91,10 @@ function App() {
                   <div className="todoList">
                     <h2>{item.title}</h2>
                     <p>{item.detail}</p>
-                    <button onClick={() => removeButton(item.id)}>삭제하기</button>
-                    <button onClick={() => doneClick(item.id)}>완료</button>
+                    <div className="button-group">
+                      <button className="delete-button" onClick={() => removeButton(item.id)}>삭제하기</button>
+                      <button className="done-button" onClick={() => doneClick(item.id)}>완료</button>
+                    </div>
                   </div>
                 )
               })
@@ -106,11 +108,13 @@ function App() {
             todoList.filter((item) => { return item.checked === true })
               .map((item) => {
                 return (
-                  <div className="todoList">
+                  <div className="doneList">
                     <h2>{item.title}</h2>
                     <p>{item.detail}</p>
-                    <button onClick={() => removeButton(item.id)}>삭제하기</button>
-                    <button onClick={() => cancelClick(item.id)}>취소</button>
+                    <div className="button-group">
+                      <button className="delete-button" onClick={() => removeButton(item.id)}>삭제하기</button>
+                      <button className="cancel-button" onClick={() => cancelClick(item.id)}>취소</button>
+                    </div>
                   </div>
                 )
               })
