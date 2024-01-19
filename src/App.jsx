@@ -51,31 +51,30 @@ function App() {
         <h1>My Todo List</h1>
         <p>React</p>
       </header>
-      <div>
-        <form className='form-style'>
-          <div>
-            <label className="label-style">제목</label>
-            <input
-              onChange={changeTitle}
-              type="text"
-              name="title"
-              value={title}
-              className='input-style'
-            />
-            <label className="label-style">내용</label>
-            <input
-              onChange={changeDetail}
-              type="text"
-              name="detail"
-              value={detail}
-              className='input-style'
-            ></input>
-          </div>
-          <div>
-            <button onClick={addHandler} className='formButton-style'>추가하기</button>
-          </div>
-        </form>
-      </div>
+      <form className='form-style'>
+        <div>
+          <label className="label-style">제목</label>
+          <input
+            onChange={changeTitle}
+            type="text"
+            name="title"
+            value={title}
+            className='input-style'
+          />
+          <label className="label-style">내용</label>
+          <input
+            onChange={changeDetail}
+            type="text"
+            name="detail"
+            value={detail}
+            className='input-style'
+          ></input>
+        </div>
+        <div>
+          <button onClick={addHandler} className='formButton-style'>추가하기</button>
+        </div>
+      </form>
+      {/* TOdo-list */}
       <div className='todoList-wrap'>
         {
           todoList.filter((item) => {
@@ -93,6 +92,8 @@ function App() {
         }
 
       </div>
+
+      {/* done-list */}
       <div>
         {
           todoList.filter((item) => {
