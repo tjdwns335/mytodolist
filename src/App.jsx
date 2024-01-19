@@ -48,8 +48,6 @@ function App() {
     setTodoList(updatedTodoList);
   }
 
-
-
   return (
     <div className="basic">
       <header className="header-style">
@@ -62,8 +60,4 @@ function App() {
     </div >
   )
 }
-
-
-
-
 export default App;
