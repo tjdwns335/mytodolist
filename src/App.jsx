@@ -16,7 +16,8 @@ function App() {
     setDetail(event.target.value);
   };
 
-  const addHandler = () => {
+  const addHandler = (event) => {
+    event.preventDefault();
     const newTodoList = {
       id: todoList.length + 1,
       title,
@@ -25,23 +26,12 @@ function App() {
     };
     setTodoList([...todoList, newTodoList]);
   };
+
   const removeButton = (id) => {
     const newTodoList = todoList.filter((todoList) => todoList.id !== id)
     setTodoList(newTodoList);
   };
-  const doneButton = (id) => {
-    const updatedTodoList = todoList.map(item =>
-      item.id !== id ? { ...item, checked: true } : item
-    );
-    setTodoList(updatedTodoList);
-  };
 
-  const cancelButton = (id) => {
-    const updatedTodoList = todoList.map(item =>
-      item.id !== id ? { ...item, checked: false } : item
-    );
-    setTodoList(updatedTodoList);
-  };
 
 
   return (
@@ -57,20 +47,20 @@ function App() {
             onChange={changeTitle}
             type="text"
             name="title"
-            value={title}
             className="input-style"
+            value={title}
           />
           <label className="label-style">내용</label>
           <input
             onChange={changeDetail}
             type="text"
             name="detail"
-            value={detail}
             className="input-style"
+            value={detail}
           />
         </div>
-        <div >
-          <button onClick={addHandler} className="formButton-style">추가하기</button>
+        <div>
+          <button className="formButton-style" onClick={addHandler}>추가하기</button>
         </div>
       </form>
 
@@ -81,16 +71,17 @@ function App() {
           {
             todoList.filter((item) => {
               return item.checked === false
-            }).map((item) => {
-              return (
-                <div className="todoList">
-                  <h2>{item.title}</h2>
-                  <p>{item.detail}</p>
-                  <button onClick={() => removeButton(item.id)}>삭제하기</button>
-                  <button onClick={() => doneButton(item.id)}>완료</button>
-                </div>
-              )
             })
+              .map((item) => {
+                return (
+                  <div className="todoList">
+                    <h2>{item.title}</h2>
+                    <p>{item.detail}</p>
+                    <button onClick={() => removeButton(item.id)}>삭제하기</button>
+                    <button onClick={function () { }}>완료</button>
+                  </div>
+                )
+              })
           }
         </div>
 
@@ -98,18 +89,17 @@ function App() {
         <h2>Done-List</h2>
         <div className="todoList-wrap">
           {
-            todoList.filter((item) => {
-              return item.checked === true
-            }).map((item) => {
-              return (
-                <div className="todoList">
-                  <h2>{item.title}</h2>
-                  <p>{item.detail}</p>
-                  <button onClick={() => removeButton(item.id)}>삭제하기</button>
-                  <button onClick={() => cancelButton(item.id)}>취소</button>
-                </div>
-              )
-            })
+            todoList.filter((item) => { return item.checked === true })
+              .map((item) => {
+                return (
+                  <div className="todoList">
+                    <h2>{item.title}</h2>
+                    <p>{item.detail}</p>
+                    <button onClick={() => removeButton(item.id)}>삭제하기</button>
+                    <button onClick={function () { }}>취소</button>
+                  </div>
+                )
+              })
           }
         </div>
       </div>
