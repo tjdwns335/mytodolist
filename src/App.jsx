@@ -1,12 +1,13 @@
 import "App.css";
 import { useState } from "react";
+import FormContent from "component/FormContent";
 
 function App() {
   const [todoList, setTodoList] = useState([
     { id: 1, title: "리엑트 공부를 합시다", detail: "리엑트 공부를 해야합니다.", checked: false },
     { id: 2, title: "리엑트 공부를 합시다", detail: "리엑트 공부를 해야합니다.", checked: true },
   ]);
-  const [doneList, setDoneList] = useState([])
+
   const [title, setTitle] = useState("");
   const [detail, setDetail] = useState("");
 
@@ -54,29 +55,7 @@ function App() {
         <h1>My Todo List</h1>
         <p>React</p>
       </header>
-      <form className="form-style">
-        <div>
-          <label className="label-style">제목</label>
-          <input
-            onChange={changeTitle}
-            type="text"
-            name="title"
-            className="input-style"
-            value={title}
-          />
-          <label className="label-style">내용</label>
-          <input
-            onChange={changeDetail}
-            type="text"
-            name="detail"
-            className="input-style"
-            value={detail}
-          />
-        </div>
-        <div>
-          <button className="formButton-style" onClick={addHandler}>추가하기</button>
-        </div>
-      </form>
+      <FormContent title={title} detail={detail} changeTitle={changeTitle} changeDetail={changeDetail} addHandler={addHandler} />
 
       <div className="list-content">
         {/* Todo-list */}
@@ -124,5 +103,8 @@ function App() {
     </div >
   )
 }
+
+
+
 
 export default App;
