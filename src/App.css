@@ -12,4 +12,61 @@
   padding: 0 20px;
   border: 1px solid #0a5ff1;
   border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.form-style {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  margin-bottom: 50px;
+  justify-content: space-between;
+}
+
+
+
+.form-style,
+.input-style,
+.formButton-style {
+  border-radius: 10px;
+}
+
+.label-style {
+  font-size: 16px;
+  font-weight: 700;
+  color: #d4bba4;
+  margin: 0 20px;
+}
+
+.input-style {
+  width: 250px;
+  height: 30px;
+}
+
+.formButton-style {
+  color: #fff;
+  background-color: #ba997b;
+  border: none;
+  width: 100px;
+  height: 30px;
+}
+
+.formButton-style:hover {
+  background-color: #e85657;
+}
+
+.todoList-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.todoList {
+  border: 4px solid #ba997b;
+  border-radius: 12px;
+  padding: 20px;
+  width: 270px;
 }
