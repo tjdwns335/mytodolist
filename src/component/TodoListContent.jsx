@@ -1,4 +1,4 @@
-const TodoListContent = ({ todoList, removeButton, doneClick, cancelClick }) => {
+const TodoListContent = ({ key, todoList, removeButton, doneClick, cancelClick }) => {
   return (
     <div className="list-content">
       {/* Todo-list */}
@@ -10,7 +10,7 @@ const TodoListContent = ({ todoList, removeButton, doneClick, cancelClick }) => 
           })
             .map((item) => {
               return (
-                <div className="todoList">
+                <div className="todoList" key={item.id}>
                   <h2>{item.title}</h2>
                   <p>{item.detail}</p>
                   <div className="button-group">
@@ -30,7 +30,7 @@ const TodoListContent = ({ todoList, removeButton, doneClick, cancelClick }) => 
           todoList.filter((item) => { return item.checked === true })
             .map((item) => {
               return (
-                <div className="doneList">
+                <div className="doneList" key={item.id}>
                   <h2>{item.title}</h2>
                   <p>{item.detail}</p>
                   <div className="button-group">
@@ -46,4 +46,4 @@ const TodoListContent = ({ todoList, removeButton, doneClick, cancelClick }) => 
   )
 }
 
-export default TodoListContent;
+export default TodoListContent

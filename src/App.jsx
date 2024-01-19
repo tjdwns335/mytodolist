@@ -57,7 +57,7 @@ function App() {
         <p>React</p>
       </header>
       <FormContent title={title} detail={detail} changeTitle={changeTitle} changeDetail={changeDetail} addHandler={addHandler} />
-      <TodoListContent todoList={todoList} removeButton={removeButton} doneClick={doneClick} cancelClick={cancelClick} />
+      <TodoListContent key={todoList.id} todoList={todoList} removeButton={removeButton} doneClick={doneClick} cancelClick={cancelClick} />
 
     </div >
   )
