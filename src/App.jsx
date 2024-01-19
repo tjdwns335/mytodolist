@@ -6,6 +6,7 @@ function App() {
     { id: 1, title: "리엑트 공부를 합시다", detail: "리엑트 공부를 해야합니다.", checked: false },
     { id: 2, title: "리엑트 공부를 합시다", detail: "리엑트 공부를 해야합니다.", checked: true },
   ]);
+  const [doneList, setDoneList] = useState([])
   const [title, setTitle] = useState("");
   const [detail, setDetail] = useState("");
 
@@ -27,10 +28,23 @@ function App() {
     setTodoList([...todoList, newTodoList]);
   };
 
+
   const removeButton = (id) => {
     const newTodoList = todoList.filter((todoList) => todoList.id !== id)
     setTodoList(newTodoList);
   };
+  const doneClick = (id) => {
+    const updatedTodoList = todoList.map((item) => {
+      return item.id === id ? { ...item, checked: true } : item
+    });
+    setTodoList(updatedTodoList);
+  }
+  const cancelClick = (id) => {
+    const updatedTodoList = todoList.map((item) => {
+      return item.id === id ? { ...item, checked: false } : item
+    });
+    setTodoList(updatedTodoList);
+  }
 
 
 
@@ -78,7 +92,7 @@ function App() {
                     <h2>{item.title}</h2>
                     <p>{item.detail}</p>
                     <button onClick={() => removeButton(item.id)}>삭제하기</button>
-                    <button onClick={function () { }}>완료</button>
+                    <button onClick={() => doneClick(item.id)}>완료</button>
                   </div>
                 )
               })
@@ -96,14 +110,14 @@ function App() {
                     <h2>{item.title}</h2>
                     <p>{item.detail}</p>
                     <button onClick={() => removeButton(item.id)}>삭제하기</button>
-                    <button onClick={function () { }}>취소</button>
+                    <button onClick={() => cancelClick(item.id)}>취소</button>
                   </div>
                 )
               })
           }
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 
