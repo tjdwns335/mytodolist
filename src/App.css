@@ -1,0 +1,15 @@
+.basic {
+  width: 1200px;
+  height: auto;
+  margin: auto;
+}
+
+.header-style {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border: 1px solid #0a5ff1;
+  border-radius: 10px;
+}
