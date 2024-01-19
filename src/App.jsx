@@ -1,6 +1,7 @@
 import "App.css";
 import { useState } from "react";
 import FormContent from "component/FormContent";
+import TodoListContent from "component/TodoListContent";
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -56,50 +57,8 @@ function App() {
         <p>React</p>
       </header>
       <FormContent title={title} detail={detail} changeTitle={changeTitle} changeDetail={changeDetail} addHandler={addHandler} />
+      <TodoListContent todoList={todoList} removeButton={removeButton} doneClick={doneClick} cancelClick={cancelClick} />
 
-      <div className="list-content">
-        {/* Todo-list */}
-        <h2>Todo-List</h2>
-        <div className="todoList-wrap">
-          {
-            todoList.filter((item) => {
-              return item.checked === false
-            })
-              .map((item) => {
-                return (
-                  <div className="todoList">
-                    <h2>{item.title}</h2>
-                    <p>{item.detail}</p>
-                    <div className="button-group">
-                      <button className="delete-button" onClick={() => removeButton(item.id)}>삭제하기</button>
-                      <button className="done-button" onClick={() => doneClick(item.id)}>완료</button>
-                    </div>
-                  </div>
-                )
-              })
-          }
-        </div>
-
-        {/* done-list */}
-        <h2>Done-List</h2>
-        <div className="todoList-wrap">
-          {
-            todoList.filter((item) => { return item.checked === true })
-              .map((item) => {
-                return (
-                  <div className="doneList">
-                    <h2>{item.title}</h2>
-                    <p>{item.detail}</p>
-                    <div className="button-group">
-                      <button className="delete-button" onClick={() => removeButton(item.id)}>삭제하기</button>
-                      <button className="cancel-button" onClick={() => cancelClick(item.id)}>취소</button>
-                    </div>
-                  </div>
-                )
-              })
-          }
-        </div>
-      </div>
     </div >
   )
 }
