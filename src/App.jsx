@@ -1,10 +1,10 @@
 import 'App.css';
 import { useState } from 'react';
-import 'reset.css';
 
 function App() {
   const [todoList, setTodoList] = useState([
-    { id: 1, title: '리엑트 공부를 합시다', detail: '리엑트 공부를 해야합니다.', checked: false }
+    { id: 1, title: '리엑트 공부를 합시다', detail: '리엑트 공부를 해야합니다.', checked: false },
+    { id: 2, title: '리엑트 공부를 합시다', detail: '리엑트 공부를 해야합니다.', checked: true },
   ]);
   const [title, setTitle] = useState('');
   const [detail, setDetail] = useState('');
@@ -30,14 +30,14 @@ function App() {
     const newTodoList = todoList.filter((todoList) => todoList.id !== id)
     setTodoList(newTodoList);
   }
-  const testButton = (id) => {
+  const doneButton = (id) => {
     const updatedTodoList = todoList.map(item =>
       item.id !== id ? { ...item, checked: true } : item
     );
     setTodoList(updatedTodoList);
   }
 
-  const testButton2 = (id) => {
+  const cancelButton = (id) => {
     const updatedTodoList = todoList.map(item =>
       item.id !== id ? { ...item, checked: false } : item
     );
@@ -68,48 +68,52 @@ function App() {
             name="detail"
             value={detail}
             className='input-style'
-          ></input>
+          />
         </div>
-        <div>
+        <div >
           <button onClick={addHandler} className='formButton-style'>추가하기</button>
         </div>
       </form>
-      {/* TOdo-list */}
-      <div className='todoList-wrap'>
-        {
-          todoList.filter((item) => {
-            return item.checked === false
-          }).map((item) => {
-            return (
-              <div className="todoList">
-                <h2>{item.title}</h2>
-                <p>{item.detail}</p>
-                <button onClick={() => removeButton(item.id)}>삭제하기</button>
-                <button onClick={() => testButton(item.id)}>완료</button>
-              </div>
-            )
-          })
-        }
 
-      </div>
+      <div className='list-content'>
+        {/* TOdo-list */}
+        <h2>Todo-List</h2>
+        <div className='todoList-wrap'>
+          {
+            todoList.filter((item) => {
+              return item.checked === false
+            }).map((item) => {
+              return (
+                <div className="todoList">
+                  <h2>{item.title}</h2>
+                  <p>{item.detail}</p>
+                  <button onClick={() => removeButton(item.id)}>삭제하기</button>
+                  <button onClick={() => doneButton(item.id)}>완료</button>
+                </div>
+              )
+            })
+          }
+        </div>
 
-      {/* done-list */}
-      <div>
-        {
-          todoList.filter((item) => {
-            return item.checked === true
-          }).map((item) => {
-            return (
-              <div className="list">
-                <h2>{item.title}</h2>
-                <p>{item.detail}</p>
-                <button onClick={() => removeButton(item.id)}>삭제하기</button>
-                <button onClick={() => testButton2(item.id)}>취소</button>
-              </div>
-            )
-          })
-        }
+        {/* done-list */}
+        <h2>Done-List</h2>
+        <div className='todoList-wrap'>
+          {
+            todoList.filter((item) => {
+              return item.checked === true
+            }).map((item) => {
+              return (
+                <div className="todoList">
+                  <h2>{item.title}</h2>
+                  <p>{item.detail}</p>
+                  <button onClick={() => removeButton(item.id)}>삭제하기</button>
+                  <button onClick={() => cancelButton(item.id)}>취소</button>
+                </div>
+              )
+            })
+          }
 
+        </div>
       </div>
     </div>
   )
