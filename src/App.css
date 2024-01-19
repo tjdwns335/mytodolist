@@ -1,38 +1,124 @@
-.App {
-  text-align: center;
+.basic {
+  width: 1200px;
+  height: auto;
+  margin: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-style {
+  height: 50px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  padding: 0 20px;
+  border: 1px solid #0a5ff1;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.form-style {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 90px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  margin-bottom: 50px;
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.form-style,
+.input-style,
+.formButton-style {
+  border-radius: 10px;
+}
+
+.label-style {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 20px;
+}
+
+.input-style {
+  width: 250px;
+  height: 30px;
+}
+
+.formButton-style {
+  /* color: #fff; */
+  background-color: #00c37d;
+  border: none;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.formButton-style:hover {
+  background-color: #e85657;
+}
+
+
+
+.todoList-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.todoList,
+.doneList {
+  border: 4px solid #00c37d;
+  border-radius: 12px;
+  padding: 20px;
+  width: 270px;
+}
+
+.doneList {
+  border-color: #2593f3;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cancel-button,
+.done-button,
+.delete-button {
+  width: 100px;
+  height: 40px;
+  border-radius: 15px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.delete-button {
+  border-color: #e60023;
+}
+
+.delete-button:hover {
+  background-color: #e60023;
+  color: #fff;
+}
+
+.done-button {
+  border-color: #00c37d;
+}
+
+.done-button:hover {
+  background-color: #00c37d;
+  color: fff;
+}
+
+.cancel-button {
+  border-color: #2593f3;
+}
+
+.cancel-button:hover {
+  background-color: #2593f3;
+  color: #fff;
 }
