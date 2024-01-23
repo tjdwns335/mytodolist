@@ -1,8 +1,14 @@
 const TodoListContent = ({ key, todoList, setTodoList, isActive }) => {
   const removeButton = (id) => {
-    const newTodoList = todoList.filter((todoList) => todoList.id !== id)
-    setTodoList(newTodoList);
+    // 확인 메시지를 표시하고 사용자가 확인을 눌렀을 때만 삭제 수행
+    const userConfirmed = window.confirm("삭제하시겠습니까?");
+
+    if (userConfirmed) {
+      const newTodoList = todoList.filter((todoList) => todoList.id !== id);
+      setTodoList(newTodoList);
+    }
   };
+
   const doneClick = (id) => {
     const updatedTodoList = todoList.map((item) => {
       return item.id === id ? { ...item, isDone: !item.isDone } : item;
@@ -16,7 +22,7 @@ const TodoListContent = ({ key, todoList, setTodoList, isActive }) => {
       <h2>{(isActive === false) ? "Todo-List" : "Done-List"}</h2>
       <div className="todoList-wrap">
         {
-          todoList.filter((item) => { return (item.isDone === isActive) ? false : true })
+          todoList.filter((item) => { return (item.isDone === isActive) ? true : false })
             .map((item) => {
               return (
                 <div className="todoList" key={item.id}>

@@ -5,10 +5,16 @@ function FormContent({ todoList, setTodoList }) {
   const [detail, setDetail] = useState("");
 
   const changeTitle = (event) => {
-    setTitle(event.target.value);
+    const titleValue = event.target.value;
+    setTitle(titleValue);
   };
   const changeDetail = (event) => {
-    setDetail(event.target.value);
+    const detailValue = event.target.value;
+    if (detailValue === "") {
+      alert("내용을 입력해 주세요!")
+      return
+    }
+    setDetail(detailValue);
   };
 
   const addHandler = (event) => {
@@ -19,6 +25,14 @@ function FormContent({ todoList, setTodoList }) {
       detail,
       isDone: false,
     };
+    if (title === "") {
+      alert("제목을 입력해 주세요!")
+      return
+    }
+    if (detail === "") {
+      alert("내용을 입력해 주세요!")
+      return
+    }
     setTodoList([...todoList, newTodoList]);
   };
   return (
