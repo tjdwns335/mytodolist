@@ -1,4 +1,26 @@
-const FormContent = ({ title, detail, changeTitle, changeDetail, addHandler }) => {
+import { useState } from "react";
+
+function FormContent({ todoList, setTodoList }) {
+  const [title, setTitle] = useState("");
+  const [detail, setDetail] = useState("");
+
+  const changeTitle = (event) => {
+    setTitle(event.target.value);
+  };
+  const changeDetail = (event) => {
+    setDetail(event.target.value);
+  };
+
+  const addHandler = (event) => {
+    event.preventDefault();
+    const newTodoList = {
+      id: Date.now(),
+      title,
+      detail,
+      isDone: false,
+    };
+    setTodoList([...todoList, newTodoList]);
+  };
   return (
     <form className="form-style">
       <div>
@@ -26,4 +48,4 @@ const FormContent = ({ title, detail, changeTitle, changeDetail, addHandler }) =
   )
 }
 
-export default FormContent;
+export default FormContent
