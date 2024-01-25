@@ -1,4 +1,4 @@
-const TodoListContent = ({ key, todoList, setTodoList, isActive }) => {
+const TodoListContent = ({ todoList, setTodoList, isActive }) => {
   const removeButton = (id) => {
     // 확인 메시지를 표시하고 사용자가 확인을 눌렀을 때만 삭제 수행
     const userConfirmed = window.confirm("삭제하시겠습니까?");
@@ -9,7 +9,7 @@ const TodoListContent = ({ key, todoList, setTodoList, isActive }) => {
     }
   };
 
-  const doneClick = (id) => {
+  const switchClick = (id) => {
     const updatedTodoList = todoList.map((item) => {
       return item.id === id ? { ...item, isDone: !item.isDone } : item;
     });
@@ -31,7 +31,7 @@ const TodoListContent = ({ key, todoList, setTodoList, isActive }) => {
                   <div className="button-group">
                     <button className="delete-button" onClick={() => removeButton(item.id)}>삭제하기</button>
                     <button className={isActive ? "cancel-button" : "done-button"}
-                      onClick={() => doneClick(item.id)}>{isActive ? "취소" : "완료"}</button>
+                      onClick={() => switchClick(item.id)}>{isActive ? "취소" : "완료"}</button>
                   </div>
                 </div>
               )
